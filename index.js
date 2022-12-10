@@ -55,14 +55,14 @@ function init(){
   })
 
   clusterer = new ymaps.Clusterer({
-    clusterDisabledClickZoom: true,
+    clusterDisableClickZoom: true,
     gridSize: 512
   })
 
     clusterer.events.add('click', function(clusterEvent) {
     const geoObjectsInCluster = clusterEvent.get('target').getGeoObjects()
 
-    const content = ymaps.templateLayoutFactory.createClass(`<div class="reviews"> ${getReviewList(geoObjectsInCluster)}</div>`)
+    const content = ymaps.templateLayoutFactory.createClass(`<div class="reviews">${getReviewList(geoObjectsInCluster)}</div>`)
 
     clusterEvent.get('target').options.set({
       clusterBalloonContentLayout: content
