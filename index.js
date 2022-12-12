@@ -21,9 +21,9 @@ const formTemplate = `
 const reviewTemplate = (review) => {
   return `
     <div class="review">
-    <div><strong>Место: </strong>${review.place}</div>
-    <div><strong>Имя: </strong>${review.author}</div>
-    <div><strong>Отзыв: </strong>${review.reviewText}</div>
+    <span><strong>${review.author}</strong></span>
+    <span>[${review.place}]</span>
+    <div>${review.reviewText}</div>
     </div>
   `
 }
@@ -111,7 +111,7 @@ function getReviewList(currentGeoObjects, isCoord) {
     }
   }
 
-  return reviewListHTML
+  return reviewListHTML + formTemplate
 }
 
 
